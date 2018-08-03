@@ -12,14 +12,14 @@ class Show extends Component {
   }
 
   componentDidMount() {
-    axios.get('/contacts/'+this.props.match.params.id)
+    axios.get('/contacts/'+this.props.match.params.id) //show the matching id
       .then(res => {
         this.setState({ contact: res.data });
         console.log(this.state.contact);
       });
   }
 
-  delete(id){
+  delete(id){ //deleting the current contact
     console.log(id);
     axios.delete('/contacts/'+id)
       .then((result) => {
@@ -50,7 +50,9 @@ class Show extends Component {
               <dt>Email Address:</dt>
               <dd>{this.state.contact.email}</dd>
             </dl>
+            {/* //edit contact button */}
             <Link to={`/edit/${this.state.contact.id}`} class="btn btn-success">Edit</Link>&nbsp;
+            {/* //calling the delete function with right id */}
             <button onClick={this.delete.bind(this, this.state.contact.id)} class="btn btn-danger">Delete</button>
           </div>
         </div>
