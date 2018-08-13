@@ -1,7 +1,8 @@
 package com.djamware.react.controllers;
-
 import com.djamware.react.models.Contact;
+import com.djamware.react.models.Student;
 import com.djamware.react.repositories.ContactRepository;
+import com.djamware.react.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,12 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
+import java.util.List;
 
 @RestController
 public class ContactController {
 
     @Autowired
     ContactRepository contactRepository;
+    StudentRepository studentRepository ;
 
     @RequestMapping(method=RequestMethod.GET, value="/contacts")
     public Iterable<Contact> contact() {
@@ -25,6 +28,7 @@ public class ContactController {
     public Contact save(@RequestBody Contact contact) {
         contactRepository.save(contact);
 
+
         return contact;
     }
 
@@ -32,6 +36,11 @@ public class ContactController {
     public Optional<Contact> show(@PathVariable String id) {
         return contactRepository.findById(id);
     }
+
+
+
+
+
 
     @RequestMapping(method=RequestMethod.PUT, value="/contacts/{id}")
     public Contact update(@PathVariable String id, @RequestBody Contact contact) {

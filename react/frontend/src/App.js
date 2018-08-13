@@ -26,12 +26,12 @@ class App extends Component {
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">
-              CONTACTS LIST
+              Students LIST
             </h3>
           </div>
           <div class="panel-body">
           {/* //route to creating contacts */}
-            <h4><Link to="/create"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Contact</Link></h4>
+            <h4><Link to="/create"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Student</Link></h4>
             <table class="table table-stripe">
               <thead>
                 <tr>

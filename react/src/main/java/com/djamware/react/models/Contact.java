@@ -9,6 +9,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 //Infrastructure for the MongoDB document-to-object mapping subsystem.
 // Identifies a domain object to be persisted to MongoDB.
 
+
+
+
+
+
 @Document(collection = "contacts") //declaring annotaion of  collection named contacts
 public class Contact { //creating class contact
     @Id
@@ -18,10 +23,8 @@ public class Contact { //creating class contact
     String city;
     String phone;
     String email;
-
     public Contact() {
     }
-
     public Contact(String name, String address, String city, String phone, String email) {
         this.name = name;
         this.address = address;
